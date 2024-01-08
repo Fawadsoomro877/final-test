@@ -4,9 +4,11 @@ import axios from "axios";
 export const createPoetry = createAsyncThunk(
   "poetry/createPoetry",
   async (data) => {
-    return axios
-      .post("http://localhost:3000/api/v1/poetry", data)
-      .then((res) => res.data);
+    const response = await axios.post(
+      "http://localhost:3000/api/v1/poetry",
+      data
+    );
+    return response.data;
   }
 );
 

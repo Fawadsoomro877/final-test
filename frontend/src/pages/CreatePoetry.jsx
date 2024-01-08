@@ -4,11 +4,18 @@ import { useDispatch } from "react-redux";
 import { createPoetry } from "../features/postPeotry/createPoetrySlice";
 
 const CreatePoetry = () => {
-  const [author, setAuthor] = useState("");
+  const [title, setTitle] = useState("");
   const [poet, setPoet] = useState("");
   const [lines, setLines] = useState("");
 
   const dispatch = useDispatch();
+  const handleCreatePoetry = () => {
+    dispatch(createPoetry({ title, poet, lines }));
+
+    setTitle("");
+    setPoet("");
+    setLines("");
+  };
 
   return (
     <>
@@ -29,8 +36,8 @@ const CreatePoetry = () => {
               type="text"
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
               placeholder="Author"
-              value={author}
-              onChange={(e) => setAuthor(e.target.value)}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -45,7 +52,7 @@ const CreatePoetry = () => {
         </div>
         <div className="">
           <button
-            onClick={() => dispatch(createPoetry({ author, poet, lines }))}
+            onClick={handleCreatePoetry}
             className="text-lg
         font-bold bg-blue-500 text-white  rounded-md px-4 py-2 "
           >

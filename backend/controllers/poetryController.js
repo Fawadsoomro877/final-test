@@ -14,6 +14,7 @@ exports.getAllPoetries = async (req, res) => {
 exports.createPoetry = async (req, res) => {
   try {
     const poetry = await Poetry.create(req.body);
+    console.log(poetry);
     res.status(201).json({
       status: 'success',
       poetry,

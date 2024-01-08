@@ -26,8 +26,8 @@ const Poetry = () => {
             <h1 className="text-3xl">
               <span className="font-bold">{el.title}</span>
             </h1>
-            {el.lines.slice(0, 5).map((line, index) => (
-              <div className="mt-4" key={el.id}>
+            {el.lines.map((line, index) => (
+              <div className="mt-4" key={el.title}>
                 <p key={index} className="text-center text-sm font-semibold">
                   {line.trim()}
                 </p>
